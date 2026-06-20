@@ -1,7 +1,128 @@
-# Tauri + Vanilla
+# TaskFlow
 
-This template should help get you started developing with Tauri in vanilla HTML, CSS and Javascript.
+TaskFlow é uma aplicação desktop para gerenciamento de projetos e tarefas, desenvolvida com HTML, CSS e JavaScript e empacotada com Tauri para distribuição multiplataforma.
 
-## Recommended IDE Setup
+O objetivo do projeto é fornecer uma interface simples e organizada para acompanhar projetos, tarefas, prioridades e progresso em um único ambiente.
 
-- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+## ✨ Funcionalidades
+
+* Autenticação de usuários
+* Dashboard com métricas gerais
+
+  * Total de tarefas
+  * Tarefas em andamento
+  * Tarefas concluídas
+* Gerenciamento de projetos
+* Gerenciamento de tarefas
+* Definição de prioridade
+* Controle de status
+* Datas de prazo opcionais
+* Importação de tarefas via JSON
+* Interface moderna com tema escuro
+* Aplicação desktop distribuída com Tauri
+
+## 🛠 Tecnologias Utilizadas
+
+### Frontend
+
+* HTML5
+* CSS3
+* JavaScript
+
+### Desktop
+
+* Tauri
+
+## 📸 Screenshots
+
+### Login
+
+![Login](./assets/login.png)
+
+### Dashboard
+
+![Dashboard](./assets/dashboard.png)
+
+### Projetos
+
+![Projetos](./assets/projects.png)
+
+### Criação e Importação de Tarefas
+
+![Importação](./assets/import.png)
+
+## 📂 Estrutura do Projeto
+
+```text
+TaskFlow/
+├── src/
+├── assets/
+├── styles/
+├── scripts/
+├── src-tauri/
+└── README.md
+```
+
+## 🤖 Importação via JSON
+
+O sistema permite importar tarefas através de um JSON estruturado.
+
+Exemplo:
+
+```json
+{
+  "tasks": [
+    {
+      "title": "Criar README",
+      "description": "Documentação inicial do projeto",
+      "priority": "alta",
+      "status": "pendente"
+    }
+  ]
+}
+```
+
+Essa funcionalidade facilita a integração com ferramentas de IA para geração automática de tarefas e organização de projetos.
+
+## 🎯 Objetivos do Projeto
+
+* Organização pessoal e profissional
+* Controle de projetos em andamento
+* Experimentos com aplicações desktop utilizando Tauri
+* Aprimoramento de arquitetura frontend com JavaScript puro
+* Integração de fluxos assistidos por IA
+
+## 🚀 Instalação
+
+```bash
+git clone https://github.com/seu-usuario/taskflow.git
+
+cd taskflow
+
+npm install
+
+npm run tauri dev
+```
+
+## 📦 Build para Produção
+
+```bash
+npm run tauri build
+```
+
+## 🔮 Melhorias Futuras
+
+* Drag and drop de tarefas
+* Etiquetas (tags)
+* Filtros avançados
+* Notificações locais
+* Sincronização em nuvem
+* Exportação para PDF
+* Dashboard com gráficos
+* Integração direta com APIs de IA
+
+## 👨‍💻 Autor
+
+Kauã
+
+Desenvolvedor Full Stack
