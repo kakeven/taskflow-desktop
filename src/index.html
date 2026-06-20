@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" 
+    content="width=device-width, 
+    initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/teste3.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style/login_cadastro/cadastro.css">
+    
+    <title>TaskFlow</title>
+</head>
+<body>
+    <header>
+      <div class="logo">
+        <h1> TaskFlow
+        <img src="assets/teste5.png" alt="">
+
+      </h1> 
+
+      </div>
+      
+       
+    </header>
+    
+    
+    <main>
+      <section class="login">
+        <div class="login_card">
+          <form id="formIDlogin">
+            
+            <div class="field">
+              <label for="email">Login:</label>
+              <input type="email" placeholder="Email" id="email" name="email">
+            </div>
+            
+            <div class="field">
+              <label for="senha" >Senha:</label>
+              <input type="password" placeholder="Senha" id="senha" name="senha">
+            </div>
+            
+            <button type="submit">Entrar</button>
+
+          </form>
+          <p id="erroLogin" style="display:none;" class="erro-msg">Email ou senha inválidos.</p>
+          <p class="sign-up">Não tem uma conta ? <a href="cadastro.html">Clique aqui</a></p>
+        </div>  
+      </section>
+      
+    </main>
+
+    <footer>
+    </footer>
+  <script type="module" src="scripts/login.js"></script>
+</body>
+</html>

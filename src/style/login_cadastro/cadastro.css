@@ -1,0 +1,126 @@
+@charset "UTF-8";
+
+
+/* --bg → fundo da página inteira
+--surface → fundo de cards, modais, navbar, inputs — elementos que ficam "em cima" do bg
+--text → cor do texto principal
+--muted → texto secundário, placeholders, legendas, ícones
+--primary → botões, links, elementos interativos principais
+--accent → badges, tags, destaques visuais, hovers
+--border → bordas de cards, inputs, divisores */
+
+
+:root {
+  --bg:      #D9DCE3;  /* um grau a mais */
+  --surface: #E8EBF0;  /* acompanha o bg */
+  --border:  #C4C9D4;
+  --text:    #111827;
+  --primary: #2563EB;
+  --accent:  #6366F1;
+  --muted:   #6B7280;
+
+}
+
+[data-theme="dark"] {
+  --bg:      #0F1117;
+  --surface: #1A1D27;
+  --text:    #F9FAFB;
+  --primary: #3B82F6;
+  --accent:  #818CF8;
+  --muted:   #9CA3AF;
+  --border:  #1F2937;
+}
+
+body {
+  background-color: var(--bg);
+  font-family: "DM Sans", sans-serif;
+}
+
+.logo {
+  margin-top: 50px;
+  place-items: center; /* alinha verticalmente */
+  gap: 10px; /* espaço entre imagem e texto */
+}
+
+.logo img {
+  width: 40px; /* ajusta conforme seu gosto */
+}
+
+.logo h1 {
+  margin: 0; /* remove aquele deslocamento estranho */
+  color: var(--text);
+}
+
+
+section {
+  display: grid;
+  place-items: center;
+  margin-top: 70px;
+  color: var(--text);
+}
+
+.login_card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+
+/* Agrupamento dos campos */
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+label {
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+/* Inputs padronizados */
+input {
+  border-radius: 5px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 10px 15px;
+  width: 84%;
+}
+
+input::placeholder {
+  color: var(--muted);
+}
+
+/* Botão */
+button[type="submit"] {
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  border: none;
+  transition: opacity 0.2s;
+  background: var(--primary);
+  color: #fff;
+  width: 95%;
+}
+
+button[type="submit"]:hover {
+  opacity: 0.85;
+}
+
+/* Texto de cadastro */
+.sign-up {
+  display: block;
+  margin-top: 18px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.erro-msg {
+  color: #e53e3e;
+  font-size: 13px;
+  text-align: center;
+  margin-top: 10px;
+}

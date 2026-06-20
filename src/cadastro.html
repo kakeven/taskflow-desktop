@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" 
+    content="width=device-width, 
+    initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/teste3.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style/login_cadastro/cadastro.css">
+    
+    <title>TaskFlow</title>
+</head>
+<body>
+    <header>
+      <div class="logo">
+        <h1> TaskFlow
+        <img src="assets/teste5.png" alt="">
+
+      </h1> 
+
+      </div>
+      
+       
+    </header>
+    
+    
+    <main>
+      <section class="login">
+        <div class="login_card">
+          <form id="formIDcadastro">
+            
+            
+            <div class="field">
+              <label for="email">Nome:</label>
+              <input type="text" placeholder="Nome" id="nome" name="nome" required>
+            </div>
+
+
+            <div class="field">
+              <label for="email">Login:</label>
+              <input type="email" placeholder="Email" id="email" name="email">
+            </div>
+            
+            <div class="field">
+              <label for="senha" >Senha:</label>
+              <input type="password" placeholder="Senha" id="senha" name="senha">
+            </div>
+            
+            <button type="submit">Cadastrar-se</button>
+
+            <p id="erroLogin" style="display:none;" class="erro-msg">Ocorreu um erro, tente novamente.</p>
+            
+            <p class="sign-up">Já possui uma conta ? <a href="index.html">Clique aqui</a></p>
+            
+          </form>
+        </div>  
+      </section>
+      
+    </main>
+
+    <footer>
+    </footer>
+  <script type="module" src="scripts/cadastro.js"></script>
+</body>
+</html>

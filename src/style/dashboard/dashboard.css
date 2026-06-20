@@ -1,0 +1,253 @@
+:root {
+  --bg:      #D9DCE3;  /* um grau a mais */
+  --surface: #E8EBF0;  /* acompanha o bg */
+  --border:  #C4C9D4;
+  --text:    #111827;
+  --primary: #2563EB;
+  --accent:  #6366F1;
+  --muted:   #6B7280;
+  --priority-high:   #DC2626;
+  --priority-medium: #D97706;
+  --priority-low:    #16A34A;
+
+ --badge-pending-bg:   #FEF9C3;
+  --badge-pending-text: #854D0E;
+
+  --badge-progress-bg:  #DBEAFE;
+  --badge-progress-text:#1E40AF;
+
+  --badge-done-bg:      #DCFCE7;
+  --badge-done-text:    #14532D;
+}
+
+[data-theme="dark"] {
+  --bg:      #0F1117;
+  --surface: #1A1D27;
+  --text:    #F9FAFB;
+  --primary: #3B82F6;
+  --accent:  #818CF8;
+  --muted:   #9CA3AF;
+  --border:  #1F2937;
+  --priority-high:   #F87171;
+  --priority-medium: #FCD34D;
+  --priority-low:    #4ADE80;
+
+  --badge-pending-bg:   #713F12;
+  --badge-pending-text: #FEF08A;
+
+  --badge-progress-bg:  #1E3A5F;
+  --badge-progress-text:#93C5FD;
+
+  --badge-done-bg:      #166534;
+  --badge-done-text:    #DCFCE7;
+  
+}
+
+
+#sidebar {
+  background-color: var(--surface);
+  border-right: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width:240px;
+}
+
+#trocar-tema{
+  border-radius: 10px;
+  border-color: var(--surface);
+  background-color: var(--surface);
+}
+
+#sidebar .nav-link {
+  color: var(--muted);
+}
+
+#sidebar .nav-link:hover,
+#sidebar .nav-link.active {
+  color: var(--text);
+}
+
+.perfil {
+  text-decoration: none;
+  color: var(--text);
+  user-select: none;
+}
+
+.botao-logout{
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  color: var(--text);
+  text-decoration: none;
+  border-radius: 10px;
+  background-color: var(--accent);
+}
+
+#main{
+  background-color: var(--bg);
+}
+
+body {
+  background-color: var(--bg);
+  min-height: 100vh;
+  margin: 0;
+  color: var(--text);
+}
+
+.card{
+  position: relative;
+  overflow: hidden;
+
+  background-color: var(--surface);
+  color: var(--text);
+  width: 230px;
+  height: 100px;
+}
+
+.card::before{
+  content: "";
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 4px;
+}
+
+.card-total::before{
+  background: var(--surface);
+}
+
+.card-andamento::before{
+  background: var(--primary);
+}
+
+.card-concluida::before{
+  background: var(--accent);
+}
+
+.card-title{
+  color: var(--muted);
+}
+
+
+#total{
+  color: var(--text);
+}
+
+#em_andamento{
+  color: var(--primary)
+}
+
+#concluidas{
+  color: var(--accent);
+}
+
+.model-content{
+  background-color: var(--surface);
+}
+
+#nova-task{
+  margin-left: 0%;
+  display: block;
+  margin-left: auto;
+  margin-bottom: 10px ;
+}
+
+.card-unico{
+  display: flex;
+  padding: 15px; 
+  background-color: var(--surface);
+  border-radius: 20px;
+  width: 80%;
+  margin-top:0px;
+  margin-right: 0px;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  flex-direction: row;
+  align-items: center;
+}
+
+#card-de-baixo{
+  margin-top: 30px;
+}
+
+@media (max-width: 767px){
+  #sidebar{display: none;}
+  #main{width: 100%;}
+}
+
+#card-de-cima{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+#card-de-cima .col-3 {
+  flex: 1 1 160px;
+}
+
+.card{
+  width: 100%;
+}
+.card-unico {
+  border-left: 4px solid transparent; /* já deixa o espaço reservado */
+}
+
+.prioridade-high   { border-left-color: var(--priority-high) }
+.prioridade-medium { border-left-color: var(--priority-medium) }
+.prioridade-low    { border-left-color: var(--priority-low) }
+
+
+.card-status {
+  padding: 8px 12px;
+  background-color: var(--badge-bg);
+  color: var(--badge-text);
+  border-radius: 100px;
+}
+
+.status-pending  { background-color: var(--badge-pending-bg);  color: var(--badge-pending-text); }
+.status-progress { background-color: var(--badge-progress-bg); color: var(--badge-progress-text); }
+.status-done     { background-color: var(--badge-done-bg);     color: var(--badge-done-text); }
+
+
+
+.projeto-task{
+  color: var(--muted);
+  border: 1px solid var(--muted);        /* borda sólida */
+  border-radius: 5px;
+  margin-top: 8px;
+  padding-right: 4px;
+  padding-left: 4px;
+  margin-left: 24px; 
+  font-size: 10px;
+  display: inline-block;
+}
+
+#context-menu {
+  display: none;
+  position: fixed;
+  background: var(--surface);
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
+  z-index: 1000;
+}
+
+#context-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 4px 0;
+}
+
+#context-menu li {
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+#context-menu li:hover {
+  background: var(--bg)
+}

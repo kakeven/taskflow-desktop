@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="style/dashboard/dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Dashboard</title>
+</head>
+<body>
+    
+    <div class="d-flex" style="min-height: 100vh;">
+        <aside id="sidebar" class="d-flex flex-column p-3"  >
+            <div class="mb-4">
+                <span class="fw-bold fs-5">Task Flow</span>
+                <button id="trocar-tema">🌙</button>
+            </div>
+            
+            <!--Itens da sidebar -->
+            <nav class="flex-grow-1">
+                <ul class="nav flex-column gap-1">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="projetos.html" class="nav-link">Projetos</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <!--Parte de baixo, onde fica o logout e perfil -->
+            <div class="mt-auto pt-3 border-top">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                    <img src="assets/do-utilizador.png" style="width:36px; height:36px; border-radius:50%; object-fit:cover; margin-bottom:50px;">
+                    <span class="small" style="margin-bottom: 50px;"><a class="perfil" id="perfil_"></a></span>
+                    
+                </div>
+                <a href="index.html" class="botao-logout" >Sair</a>
+            </div>
+        </aside>
+        <main class="flex-grow-1 p-4" id="main">
+            <button class="btn btn-primary" style="height: auto; width: auto;" id="nova-task" data-bs-toggle="modal" data-bs-target="#meuModal">Nova task</button>
+            
+            
+            <div class="modal fade" id="meuModal"> <!--Modal-->
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <!--Modal header-->
+                        <div class="modal-header">
+                            <h5 class="modal-title">Criar tarefa</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+
+                        <!--Modal body-->
+                        <form id="formModal">
+                            <div class="modal-body">
+                                
+                                <!--
+                                title:str
+                                description: str | None = None
+                                priority: EnumPriority
+                                status: EnumStatus
+                                due_date: date | None = None-->
+
+                                <!--Nome da tarefa-->
+                                <div class="mb-3">
+                                    <label class="form-label">Nome da tarefa</label>
+                                    <input type="text" class="form-control" name="title" required>
+                                </div>
+                            
+                                 <!-- Descrição -->
+                                <div class="mb-3">
+                                    <label class="form-label">Descrição</label>
+                                    <textarea class="form-control" name="description"></textarea>
+                                </div>
+
+                                <!-- Status -->
+                                <div class="mb-3">
+                                    <label class="form-label">Status</label>
+                                    <select class="form-select" name="status">
+                                        <option value="pending">Pendente</option>
+                                        <option value="in_progress">Em andamento</option>
+                                        <option value="done">Concluída</option>
+                                    </select>
+                                </div>
+
+                                <!-- Prioridade -->
+                                <div class="mb-3">
+                                    <label class="form-label">Prioridade</label>
+                                    <select class="form-select" name="priority">
+                                        <option value="low">Baixa</option>
+                                        <option value="medium">Média</option>
+                                        <option value="high">Alta</option>
+                                    </select>
+                                </div>
+
+                                <!-- Projetos -->
+                                <div class="mb-3">
+                                    <label class="form-label">Projetos</label>
+                                    <select id="select-project" class="form-select" name="project_id">
+                                        <option value="">Nenhum</option> 
+                                    </select>
+                                </div>
+
+                                <!--Calendario-->
+                                <div class="mb-3">
+                                    <label class="form-label">Selecione o prazo(opcional)</label>
+                                    <input type="date" class="form-control" name="due_date" >
+                                </div>
+                                
+
+                            </div>
+
+                                <!--Modal footer-->
+                            <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                        Cancelar
+                                    </button>
+                                    <button type="submit"  class="btn btn-primary">
+                                        Salvar
+                                    </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+
+
+
+            <!--Cards de cima-->
+            <div class="row" id="card-de-cima" style="margin-top:0px;">                          
+                
+                <div class="col-3">                      
+                    <div class="card card-total">
+                        <div class="card-body">
+                            <h5 class="card-title">Total criadas</h5>
+                            <h3 class="card-text" id="total"></h3>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <div class="card card-andamento">
+                        <div class="card-body">
+                            <h5 class="card-title">Em andamento</h5>
+                            <h3 class="card-text" id="em_andamento"></h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <div class="card card-concluida">
+                        <div class="card-body">
+                            <h5 class="card-title">Concluidas</h5>
+                            <h3 class="card-text" id="concluidas"></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            
+            <!--Card de baixo(gerados no js)-->
+            <div class="d-flex flex-column" id="card-de-baixo">
+            </div>
+            
+            <div id="context-menu">
+                    <ul>
+                        <li id="btn-editar-task">✏️ Editar</li>
+                        <li id="btn-excluir-task">🗑️ Excluir</li>
+                    </ul>
+                </div>
+        </main>
+
+
+    </div>
+        
+        
+    
+
+    <script type="module" src="scripts/dashboard.js"> </script>
+</body>
+</html>

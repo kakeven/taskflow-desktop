@@ -1,0 +1,331 @@
+:root {
+  --bg:      #D9DCE3;
+  --surface: #E8EBF0;
+  --border:  #C4C9D4;
+  --text:    #111827;
+  --primary: #2563EB;
+  --accent:  #6366F1;
+  --muted:   #6B7280;
+  --priority-high:   #DC2626;
+  --priority-medium: #D97706;
+  --priority-low:    #16A34A;
+
+  --badge-pending-bg:   #FEF9C3;
+  --badge-pending-text: #854D0E;
+
+  --badge-progress-bg:  #DBEAFE;
+  --badge-progress-text:#1E40AF;
+
+  --badge-done-bg:      #DCFCE7;
+  --badge-done-text:    #14532D;
+}
+
+[data-theme="dark"] {
+  --bg:      #0F1117;
+  --surface: #1A1D27;
+  --text:    #F9FAFB;
+  --primary: #3B82F6;
+  --accent:  #818CF8;
+  --muted:   #9CA3AF;
+  --border:  #1F2937;
+  --priority-high:   #F87171;
+  --priority-medium: #FCD34D;
+  --priority-low:    #4ADE80;
+
+  --badge-pending-bg:   #713F12;
+  --badge-pending-text: #FEF08A;
+
+  --badge-progress-bg:  #1E3A5F;
+  --badge-progress-text:#93C5FD;
+
+  --badge-done-bg:      #166534;
+  --badge-done-text:    #DCFCE7;
+}
+
+#sidebar {
+  background-color: var(--surface);
+  border-right: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 240px;
+}
+
+#trocar-tema {
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background-color: var(--surface);
+}
+
+#sidebar .nav-link {
+  color: var(--muted);
+}
+
+#sidebar .nav-link:hover,
+#sidebar .nav-link.active {
+  color: var(--text);
+}
+
+.perfil {
+  text-decoration: none;
+  color: var(--text);
+  user-select: none;
+}
+
+.botao-logout {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  color: var(--text);
+  text-decoration: none;
+  border-radius: 10px;
+  background-color: var(--accent);
+}
+
+#main {
+  background-color: var(--bg);
+  padding: 1.5rem;
+}
+
+body {
+  background-color: var(--bg);
+  min-height: 100vh;
+  margin: 0;
+  color: var(--text);
+}
+
+#card-cima, #card-baixo {
+  background-color: var(--surface);
+  color: var(--text);
+}
+
+#card-status {
+  border-radius: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 2px;
+}
+
+.status-pending  { background-color: var(--badge-pending-bg);  color: var(--badge-pending-text); }
+.status-progress { background-color: var(--badge-progress-bg); color: var(--badge-progress-text); }
+.status-done     { background-color: var(--badge-done-bg);     color: var(--badge-done-text); }
+
+#card-cima {
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin-bottom: 10px;
+}
+
+#card-cima:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 15px var(--border);
+}
+
+#painel-projeto {
+  width: 280px;
+  background-color: var(--surface);
+  border-left: 1px solid var(--border);
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+#painel-acoes {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+#painel-acoes button {
+  border: none;
+  border-radius: 10px;
+  padding: 8px;
+  font-weight: 600;
+  transition:
+    transform 0.15s ease,
+    opacity 0.15s ease,
+    background 0.2s ease;
+  cursor: pointer;
+}
+
+#btn-add-task {
+  background: var(--primary);
+  color: var(--bg);
+}
+
+#btn-editar {
+  background: var(--priority-medium);
+  color: var(--bg);
+}
+
+#btn-excluir {
+  background: var(--priority-high);
+  color: var(--bg);
+}
+
+#painel-acoes button:hover {
+  transform: translateY(-2px);
+  opacity: 0.92;
+}
+
+#painel-acoes button:active {
+  transform: scale(0.98);
+}
+
+.painel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.painel-header h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-left: 15px;
+  margin-top: 5px;
+}
+
+.painel-descricao {
+  padding: 14px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--text) 5%, transparent);
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.painel-info {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--text) 3%, transparent);
+}
+
+.info-label {
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+.info-value {
+  font-weight: 600;
+}
+
+.badge-status {
+  margin-top: 10px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.pending {
+  background: var(--badge-pending-bg);
+  color: var(--badge-pending-text);
+}
+
+.in_progress {
+  background: var(--badge-progress-bg);
+  color: var(--badge-progress-text);
+}
+
+.done {
+  background: var(--badge-done-bg);
+  color: var(--badge-done-text);
+}
+
+.prioridade-low {
+  color: var(--priority-low);
+}
+
+.prioridade-medium {
+  color: var(--priority-medium);
+}
+
+.prioridade-high {
+  color: var(--priority-high);
+}
+
+#painel-projeto {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+#painel-conteudo {
+  flex: 1;          /* ocupa o espaço disponível */
+  overflow-y: auto; /* scroll quando passar do limite */
+  padding: 16px;
+}
+
+#painel-acoes {
+  /* fica embaixo naturalmente, sem precisar de position fixed */
+  border-top: 1px solid var(--border);
+  padding: 16px;
+}
+
+/* Tasks do painel */
+.painel-tasks-secao {
+  margin-top: 20px;
+}
+
+.painel-tasks-secao h5 {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.painel-task-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background-color: var(--bg);
+  border-radius: 10px;
+  margin-bottom: 6px;
+  border-left: 4px solid transparent;
+}
+
+.painel-task-item label {
+  font-size: 0.85rem;
+  cursor: pointer;
+  flex: 1;
+}
+
+#context-menu {
+  display: none;
+  position: fixed;
+  background: var(--surface);
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
+  z-index: 1000;
+}
+
+#context-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 4px 0;
+}
+
+#context-menu li {
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+#context-menu li:hover {
+  background: var(--bg)
+}
+

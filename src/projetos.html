@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="style/projetos/projetos.css">
+    <title>TaskFlow</title>
+</head>
+    <body>
+        <div class="d-flex" style="min-height: 100vh;">
+            <aside id="sidebar" class="d-flex flex-column p-3"  >
+                    <div class="mb-4">
+                        <span class="fw-bold fs-5">Task Flow</span>
+                        <button id="trocar-tema">🌙</button>
+                    </div>
+                    
+                    <!--Itens da sidebar -->
+                    <nav class="flex-grow-1">
+                        <ul class="nav flex-column gap-1">
+                            <li class="nav-item">
+                                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="projetos.html" class="nav-link active">Projetos</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    
+                    <!--Parte de baixo, onde fica o logout e perfil -->
+                    <div class="mt-auto pt-3 border-top">
+                        <div class="d-flex align-items-center gap-2 mb-2">
+                            <img src="assets/do-utilizador.png" style="width:36px; height:36px; border-radius:50%; object-fit:cover; margin-bottom:50px;">
+                            <span class="small" style="margin-bottom: 50px;"><a class="perfil" id="perfil_"></a></span>
+                            
+                        </div>
+                        <a href="index.html" class="botao-logout" >Sair</a>
+                    </div>
+            </aside>
+            <main class="flex-grow-1 p-4" id="main">
+                <div class="d-flex justify-content-end mb-3">
+                    <button class="btn btn-primary" id="novo-projeto" data-bs-toggle="modal" data-bs-target="#Modalprojeto">
+                        Novo projeto
+                    </button>
+                </div>
+                
+                <div class="modal fade" id="Modalprojeto"> <!--Modal-->
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+
+                            <!--Modal header-->
+                            <div class="modal-header">
+                                <h5 class="modal-title">Criar projeto</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+
+                            <!--Modal body-->
+                            <form id="formModal">
+                                <div class="modal-body">
+                                    
+                                   
+                                    <!--Nome da tarefa-->
+                                    <div class="mb-3">
+                                        <label class="form-label">Nome do projeto</label>
+                                        <input type="text" class="form-control" name="title" required>
+                                    </div>
+                                
+                                    <!-- Descrição -->
+                                    <div class="mb-3">
+                                        <label class="form-label">Descrição</label>
+                                        <textarea class="form-control" name="description"></textarea>
+                                    </div>
+
+                                    <!-- Status -->
+                                    <div class="mb-3">
+                                        <label class="form-label">Status</label>
+                                        <select class="form-select" name="status">
+                                            <option value="pending">Pendente</option>
+                                            <option value="in_progress">Em andamento</option>
+                                            <option value="done">Concluída</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Prioridade -->
+                                    <div class="mb-3">
+                                        <label class="form-label">Prioridade</label>
+                                        <select class="form-select" name="priority">
+                                            <option value="low">Baixa</option>
+                                            <option value="medium">Média</option>
+                                            <option value="high">Alta</option>
+                                        </select>
+                                    </div>
+
+                                    <!--Calendario-->
+                                    <div class="mb-3">
+                                        <label class="form-label">Selecione o prazo(opcional)</label>
+                                        <input type="date" class="form-control" name="due_date" >
+                                    </div>
+                                    
+
+                                </div>
+
+                                    <!--Modal footer-->
+                                <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                            Cancelar
+                                        </button>
+                                        <button type="submit"  class="btn btn-primary">
+                                            Salvar
+                                        </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="modal fade" id="Modal-task"> <!--Modal-->
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+
+                            <!--Modal header-->
+                            <div class="modal-header">
+                                <h5 class="modal-title">Criar tarefa</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+
+                            <!--Modal body-->
+                            <form id="Modaltask">
+                                <div class="modal-body">
+                                    
+                                    <!--
+                                    title:str
+                                    description: str | None = None
+                                    priority: EnumPriority
+                                    status: EnumStatus
+                                    due_date: date | None = None-->
+
+                                    <!--Nome da tarefa-->
+                                    <div class="mb-3">
+                                        <label class="form-label">Nome da tarefa</label>
+                                        <input type="text" class="form-control" name="title" required>
+                                    </div>
+                                
+                                    <!-- Descrição -->
+                                    <div class="mb-3">
+                                        <label class="form-label">Descrição</label>
+                                        <textarea class="form-control" name="description"></textarea>
+                                    </div>
+
+                                    <!-- Status -->
+                                    <div class="mb-3">
+                                        <label class="form-label">Status</label>
+                                        <select class="form-select" name="status">
+                                            <option value="pending">Pendente</option>
+                                            <option value="in_progress">Em andamento</option>
+                                            <option value="done">Concluída</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Prioridade -->
+                                    <div class="mb-3">
+                                        <label class="form-label">Prioridade</label>
+                                        <select class="form-select" name="priority">
+                                            <option value="low">Baixa</option>
+                                            <option value="medium">Média</option>
+                                            <option value="high">Alta</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Projetos -->
+                                    <div class="mb-3">
+                                        <label class="form-label">Projeto</label>
+                                        <select id="select-project" class="form-control-plaintext fw-bold" name="project_id">
+                                            
+                                        </select>
+                                    </div>
+
+                                    <!--Calendario-->
+                                    <div class="mb-3">
+                                        <label class="form-label">Selecione o prazo(opcional)</label>
+                                        <input type="date" class="form-control" name="due_date" >
+                                    </div>
+                                    
+                                     <!-- opção de escolha -->
+                                    <div class="mb-3">
+                                        <label class="form-label">Como quer importar?</label>
+                                        <select id="tipo-importacao" class="form-select">
+                                            <option value="textarea">Colar JSON</option>
+                                            <option value="arquivo">Upload de arquivo</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- textarea -->
+                                    <div id="secao-textarea" class="mb-3">
+                                        <label class="form-label">Cole o JSON aqui</label>
+                                        <textarea id="textarea-json" class="form-control" rows="6">Para automatizar, envie isso para IA criara as task já formatadas
+                                            {
+"schema": {
+"title": "string",
+"description": "string | null",
+"priority": "EnumPriority",
+"status": "EnumStatus",
+"due_date": "date | null",
+"project_id": "int | null"
+},
+
+"enums": {
+"EnumPriority": [
+"low",
+"medium",
+"high"
+],
+
+"EnumStatus": [
+"pending",
+"in_progress",
+"done"
+]
+},
+
+"example": {
+"title": "Implementar autenticação JWT",
+"description": "Criar login e refresh token",
+"priority": "high",
+"status": "in_progress",
+"due_date": "2026-05-30"
+}
+} 
+</textarea>
+                                    </div>
+
+                                    <!-- upload -->
+                                    <div id="secao-arquivo" class="mb-3 d-none">
+                                        <label class="form-label">Selecione o arquivo .json</label>
+                                        <input type="file" id="input-file" class="form-control" accept=".json">
+                                    </div>
+
+                                </div>
+
+                                    <!--Modal footer-->
+                                <div class="modal-footer">
+                                        <button type="button" id="btn-importar-json" class="btn btn-success">Importar JSON</button>
+                                        <button type="submit"  class="btn btn-primary">
+                                            Salvar
+                                        </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- cards gerados pelo JS aqui -->
+                <div class="row row-cols-2 row-cols-lg-3 g-3 mt-3" id="lista-projetos">
+                </div>
+                
+                <div id="context-menu">
+                    <ul>
+                        <li id="btn-editar-task">✏️ Editar</li>
+                        <li id="btn-excluir-task">🗑️ Excluir</li>
+                    </ul>
+                </div>
+
+            </main>
+            
+            <aside id="painel-projeto" class="d-none">
+                    <div id="painel-conteudo"></div>
+                    <div id="painel-acoes">
+                        <button id="btn-add-task">Adicionar task</button>
+                        <button id="btn-editar">Editar</button>
+                        <button id="btn-excluir">Excluir</button>
+                    </div>
+            </aside>
+
+        </div>
+    
+    <script type="module" src="scripts/projetos.js"></script>
+    </body>
+</html>
