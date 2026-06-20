@@ -4,7 +4,7 @@ TaskFlow é uma aplicação desktop para gerenciamento de projetos e tarefas, de
 
 O objetivo do projeto é fornecer uma interface simples e organizada para acompanhar projetos, tarefas, prioridades e progresso em um único ambiente.
 
-## ✨ Funcionalidades
+##  Funcionalidades
 
 * Autenticação de usuários
 * Dashboard com métricas gerais
