@@ -33,32 +33,11 @@ O objetivo do projeto é fornecer uma interface simples e organizada para acompa
 
 * Tauri
 
-## 📸 Screenshots
-
-### Login
-
-![Login](./assets/login.png)
-
-### Dashboard
-
-![Dashboard](./assets/dashboard.png)
-
-### Projetos
-
-![Projetos](./assets/projects.png)
-
-### Criação e Importação de Tarefas
-
-![Importação](./assets/import.png)
-
 ## 📂 Estrutura do Projeto
 
 ```text
 TaskFlow/
 ├── src/
-├── assets/
-├── styles/
-├── scripts/
 ├── src-tauri/
 └── README.md
 ```
@@ -95,14 +74,15 @@ Essa funcionalidade facilita a integração com ferramentas de IA para geração
 ## 🚀 Instalação
 
 ```bash
-git clone https://github.com/seu-usuario/taskflow.git
+git clone https://github.com/kakeven/taskflow-desktop
 
 cd taskflow
 
-npm install
+npm install ou pnpm install
 
-npm run tauri dev
+npm run tauri dev ou pnpm run tauri dv
 ```
+
 
 ## 📦 Build para Produção
 
